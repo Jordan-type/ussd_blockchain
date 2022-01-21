@@ -3,11 +3,10 @@ const ContractKit = require('@celo/contractkit')
 
 // import user controller
 const { createUser, checkUserAddress } = require('../controllers/users.controller')
-const { createWallet, getBalance, transfercUSD, getAccountDetails } = require('../services/generate-wallet')
-const { getTxIdUrl } = require('../services/urls')
+const { createWallet, getBalance, transfercUSD, getAccountDetails } = require('../services/celo-services')
+const { getTxIdUrl } = require('../services/urls-services')
 
 const kit = ContractKit.newKit(process.env.TEST_NET_ALFAJORES)
-// console.log("connected to celo!!!!", kit)
 const router = express.Router()
 
 router.post("/", async(req, res, next) => {
